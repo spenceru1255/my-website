@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sell Your Car at Utah Auto Fair</title>
+  <meta name="description" content="Sell your car at Utah Auto Fair. Bring your vehicle to one public lot, meet serious local buyers, and keep the deal between you and the buyer." />
+  <meta property="og:title" content="Sell Your Car at Utah Auto Fair" />
+  <meta property="og:description" content="A simpler way for Utah drivers to sell privately: one lot, serious buyers, no dealer trade-in lowball." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #062b5f;
+      --navy-2: #041a3d;
+      --blue: #0d4c92;
+      --orange: #f47b20;
+      --orange-2: #cf5f11;
+      --cream: #fff8ef;
+      --bg: #f7f9fc;
+      --text: #162033;
+      --muted: #667085;
+      --line: #e6eaf0;
+      --green: #19a15f;
+      --shadow: 0 22px 60px rgba(6, 43, 95, .18);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+    img, svg { max-width: 100%; }
+    .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(4, 26, 61, .96);
+      backdrop-filter: blur(12px);
+      border-bottom: 3px solid var(--orange);
+    }
+
+    .nav {
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      font-size: 1.1rem;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--orange), #ffb35c);
+      color: white;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(244, 123, 32, .3);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: rgba(255,255,255,.78);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: white; }
+
+    .nav-cta {
+      background: var(--orange);
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      padding: 10px 16px;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(244, 123, 32, .28);
+      white-space: nowrap;
+    }
+
+    .hero {
+      position: relative;
+      color: white;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(244,123,32,.32), transparent 30%),
+        radial-gradient(circle at 20% 20%, rgba(56,139,255,.22), transparent 32%),
+        linear-gradient(145deg, var(--navy-2), var(--navy) 58%, #0c5da6);
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.75), transparent 78%);
+      pointer-events: none;
+    }
+
+    .hero-wrap {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.03fr .97fr;
+      gap: 56px;
+      align-items: center;
+      padding: 82px 0 92px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #ffd4b5;
+      background: rgba(244,123,32,.14);
+      border: 1px solid rgba(244,123,32,.36);
+      border-radius: 999px;
+      padding: 8px 14px;
+      text-transform: uppercase;
+      font-size: .74rem;
+      font-weight: 900;
+      letter-spacing: .09em;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #2ee083;
+      box-shadow: 0 0 0 0 rgba(46,224,131,.5);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 10px rgba(46,224,131,0); }
+      100% { box-shadow: 0 0 0 0 rgba(46,224,131,0); }
+    }
+
+    h1 {
+      font-size: clamp(2.45rem, 6vw, 5.2rem);
+      line-height: .97;
+      letter-spacing: -.075em;
+      margin: 22px 0 22px;
+      font-weight: 900;
+    }
+
+    h1 span { color: #ff9f4d; }
+
+    .hero-copy {
+      font-size: clamp(1.06rem, 1.7vw, 1.35rem);
+      color: rgba(255,255,255,.84);
+      max-width: 660px;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 14px 22px;
+      border-radius: 14px;
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--orange); color: white; box-shadow: 0 16px 36px rgba(244,123,32,.34); }
+    .btn-primary:hover { background: var(--orange-2); }
+    .btn-light { color: white; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25); }
+    .btn-light:hover { background: rgba(255,255,255,.16); }
+
+    .hero-note {
+      margin-top: 16px;
+      color: rgba(255,255,255,.68);
+      font-size: .92rem;
+    }
+
+    .event-card {
+      position: relative;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 30px;
+      padding: 18px;
+      box-shadow: 0 36px 90px rgba(0,0,0,.26);
+      backdrop-filter: blur(14px);
+    }
+
+    .dashboard {
+      background: #fff;
+      color: var(--text);
+      border-radius: 24px;
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .map-card {
+      min-height: 270px;
+      border-radius: 20px;
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(6,43,95,.08) 1px, transparent 1px),
+        linear-gradient(rgba(6,43,95,.08) 1px, transparent 1px),
+        radial-gradient(circle at 50% 50%, rgba(244,123,32,.25), transparent 28%),
+        linear-gradient(145deg, #f8fafc, #eef4fb);
+      background-size: 34px 34px, 34px 34px, auto, auto;
+      border: 1px solid #e3e8ef;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .pin {
+      width: 78px;
+      height: 78px;
+      border-radius: 26px 26px 26px 6px;
+      background: var(--orange);
+      transform: rotate(-45deg);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 16px 30px rgba(244,123,32,.34);
+      margin-inline: auto;
+    }
+
+    .pin span { transform: rotate(45deg); color: white; font-weight: 900; font-size: 1.25rem; }
+    .map-card h3 { margin: 22px 0 6px; font-size: 1.35rem; color: var(--navy); }
+    .map-card p { margin: 0; color: var(--muted); }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .mini-stat {
+      background: #f7f9fc;
+      border: 1px solid #e7ecf4;
+      border-radius: 16px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .mini-stat strong { display: block; color: var(--navy); font-size: 1.2rem; line-height: 1; }
+    .mini-stat span { color: var(--muted); font-size: .76rem; font-weight: 700; }
+
+    .section { padding: 82px 0; }
+    .section.alt { background: var(--bg); }
+    .section.dark { background: linear-gradient(145deg, var(--navy-2), var(--navy)); color: white; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      text-transform: uppercase;
+      color: var(--orange);
+      font-weight: 900;
+      letter-spacing: .11em;
+      font-size: .78rem;
+      margin: 0 0 10px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      margin: 0;
+      color: var(--navy-2);
+      font-weight: 900;
+    }
+
+    .dark h2 { color: white; }
+    .section-sub { margin: 12px 0 0; color: var(--muted); max-width: 700px; font-size: 1.04rem; }
+    .dark .section-sub { color: rgba(255,255,255,.72); }
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .fact-card, .step, .problem, .faq-item, .price-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 12px 34px rgba(6,43,95,.07);
+    }
+
+    .fact-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: var(--orange);
+      background: #fff0e4;
+      margin-bottom: 18px;
+      font-size: 1.4rem;
+    }
+
+    .fact-card h3, .step h3, .problem h3 { margin: 0 0 8px; color: var(--navy); font-size: 1.14rem; }
+    .fact-card p, .step p, .problem p, .faq-item p { margin: 0; color: var(--muted); }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .step-num {
+      color: var(--orange);
+      font-weight: 900;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .problem-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .problem { background: rgba(255,255,255,.92); }
+    .problem .x {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: #fff4ea;
+      color: var(--orange);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .offer-wrap {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .price-card {
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card:before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 7px;
+      background: linear-gradient(90deg, var(--orange), #ffc06b);
+    }
+
+    .price-label {
+      display: inline-flex;
+      margin: 10px 0 18px;
+      color: var(--orange-2);
+      background: #fff0e4;
+      border: 1px solid #ffd4b0;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .price { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+    .price .old { color: #98a2b3; font-size: 1.2rem; text-decoration: line-through; font-weight: 800; }
+    .price .new { font-size: 4.4rem; color: var(--navy); font-weight: 900; line-height: .9; letter-spacing: -.07em; }
+    .small { color: var(--muted); font-size: .92rem; }
+
+    .check-list { list-style: none; padding: 0; margin: 24px 0; }
+    .check-list li {
+      display: flex;
+      gap: 11px;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+      color: #344054;
+    }
+    .check-list li:before { content: "✓"; color: var(--orange); font-weight: 900; flex: 0 0 auto; }
+
+    .registration {
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      padding: 26px;
+      box-shadow: 0 18px 50px rgba(6,43,95,.08);
+    }
+
+    label { display: block; font-weight: 800; font-size: .88rem; color: var(--navy); margin: 14px 0 7px; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #d5dbe5;
+      border-radius: 14px;
+      padding: 13px 14px;
+      font: inherit;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--orange); box-shadow: 0 0 0 4px rgba(244,123,32,.12); }
+    textarea { min-height: 96px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-note { color: var(--muted); font-size: .86rem; margin: 10px 0 0; }
+
+    .faq {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .faq-item h3 { margin: 0 0 8px; color: var(--navy); font-size: 1rem; }
+
+    .final-cta {
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(244,123,32,.2), transparent 36%),
+        linear-gradient(145deg, var(--navy-2), var(--navy));
+      color: white;
+      padding: 76px 20px;
+    }
+    .final-cta h2 { color: white; max-width: 760px; margin-inline: auto; }
+    .final-cta p { color: rgba(255,255,255,.74); max-width: 650px; margin: 18px auto 28px; font-size: 1.08rem; }
+
+    footer {
+      background: #03152f;
+      color: rgba(255,255,255,.7);
+      padding: 34px 0;
+      font-size: .9rem;
+    }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    footer a { color: white; }
+
+    .source-note {
+      color: #8a94a6;
+      font-size: .78rem;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .nav { height: auto; padding: 12px 0; }
+      .nav-links { display: none; }
+      .hero-wrap, .offer-wrap { grid-template-columns: 1fr; gap: 30px; padding: 54px 0 66px; }
+      .section { padding: 60px 0; }
+      .section-head { display: block; }
+      .fact-grid, .steps, .problem-list { grid-template-columns: 1fr; }
+      .faq { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .brand span:last-child { font-size: .96rem; }
+      .nav-cta { padding: 9px 12px; font-size: .86rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .dashboard { padding: 15px; border-radius: 20px; }
+      .map-card { min-height: 230px; }
+      .mini-stats { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .price .new { font-size: 3.5rem; }
+      .fact-card, .step, .problem, .faq-item, .price-card, .registration { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <!--
+    Utah Auto Fair sales page
+    Replace the placeholder date, venue, phone, email, and form handling before launch.
+    If uploading to Netlify, this form can work with Netlify Forms after deployment.
+  -->
+
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Utah Auto Fair home">
+        <span class="brand-mark">UAF</span>
+        <span>Utah Auto Fair</span>
+      </a>
+      <nav class="nav-links" aria-label="Page navigation">
+        <a href="#how">How It Works</a>
+        <a href="#why">Why It Works</a>
+        <a href="#offer">Seller Spot</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="nav-cta" href="#register">Register to Sell</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Founding seller spots opening soon</div>
+          <h1>Sell your car in Utah without the <span>dealer runaround.</span></h1>
+          <p class="hero-copy">Utah Auto Fair brings local sellers and ready buyers together on one public lot for one focused weekend. Show your vehicle, connect with buyers, and keep the deal between you and the person buying your car.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#register">Reserve My Seller Spot →</a>
+            <a class="btn btn-light" href="#how">See How It Works</a>
+          </div>
+          <p class="hero-note">Intro seller registration: <strong>$99 founding rate</strong>. Update the final event date and venue below before publishing.</p>
+        </div>
+
+        <aside class="event-card" aria-label="Utah Auto Fair event summary">
+          <div class="dashboard">
+            <div class="map-card">
+              <div>
+                <div class="pin"><span>UT</span></div>
+                <h3>One Utah lot. One weekend. Serious local buyers.</h3>
+                <p>No customer photos needed. This page uses clean facts, process cards, and Utah-specific seller information.</p>
+              </div>
+            </div>
+            <div class="mini-stats">
+              <div class="mini-stat"><strong>75</strong><span>Founding spots</span></div>
+              <div class="mini-stat"><strong>$99</strong><span>Launch rate</span></div>
+              <div class="mini-stat"><strong>0%</strong><span>Commission</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section alt" id="why">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Why sellers like the fair model</p>
+            <h2>A simpler way to sell privately.</h2>
+            <p class="section-sub">Instead of waiting on online messages, hosting strangers at your home, or accepting a trade-in offer, Utah Auto Fair gives sellers a public setting built for private-party car sales.</p>
+          </div>
+        </div>
+
+        <div class="fact-grid">
+          <article class="fact-card">
+            <div class="fact-icon">$</div>
+            <h3>Private-party upside</h3>
+            <p>Dealers generally buy to resell. Private buyers are shopping for the vehicle they actually want, which can give sellers more room to get a fair market price.</p>
+          </article>
+          <article class="fact-card">
+            <div class="fact-icon">👥</div>
+            <h3>Buyers come to one place</h3>
+            <p>Put your vehicle in front of motivated local shoppers during a dedicated weekend instead of managing scattered one-off appointments.</p>
+          </article>
+          <article class="fact-card">
+            <div class="fact-icon">🔒</div>
+            <h3>Public and organized</h3>
+            <p>A planned public lot creates a more comfortable environment than driveway meetups, random parking lots, or endless online back-and-forth.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <p class="section-kicker">The process</p>
+        <h2>How Utah Auto Fair works.</h2>
+        <p class="section-sub">Three simple steps: pre-register, bring your car, and take buyer calls or offers directly.</p>
+        <div class="steps" style="margin-top: 34px;">
+          <article class="step">
+            <div class="step-num">Step 01</div>
+            <h3>Submit your vehicle</h3>
+            <p>Fill out the registration form with your vehicle details. We review submissions so the lot is organized and useful for buyers.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">Step 02</div>
+            <h3>Bring it to the event lot</h3>
+            <p>Arrive during seller check-in, park in your assigned spot, and place your seller information where buyers can easily understand your vehicle.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">Step 03</div>
+            <h3>Talk directly with buyers</h3>
+            <p>Interested buyers contact you directly. You negotiate the sale, handle payment, complete paperwork, and keep every dollar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="container">
+        <p class="section-kicker">The problem</p>
+        <h2>Selling your car should not take over your life.</h2>
+        <p class="section-sub">Traditional private selling can work, but it often comes with wasted time, awkward meetups, and people who were never serious in the first place.</p>
+        <div class="problem-list" style="margin-top: 34px;">
+          <article class="problem">
+            <div class="x">×</div>
+            <h3>Endless listings</h3>
+            <p>Post photos, answer the same questions, bump your listing, and wait for the right buyer to appear.</p>
+          </article>
+          <article class="problem">
+            <div class="x">×</div>
+            <h3>Uncomfortable meetups</h3>
+            <p>Scheduling strangers to come to your house or meet after work can be inconvenient and stressful.</p>
+          </article>
+          <article class="problem">
+            <div class="x">×</div>
+            <h3>Dealer trade-in pressure</h3>
+            <p>Trade-ins are convenient, but the offer may be based on wholesale resale economics, not what a local buyer may pay.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <p class="section-kicker">Utah seller facts</p>
+        <h2>Helpful Utah paperwork reminders.</h2>
+        <p class="section-sub">This section replaces people photos with useful, Utah-specific information. Always confirm current rules with the Utah DMV before completing a sale.</p>
+        <div class="fact-grid" style="margin-top: 34px;">
+          <article class="fact-card">
+            <div class="fact-icon">🧾</div>
+            <h3>Title and registration</h3>
+            <p>Utah DMV seller guidance says to give the new owner the signed title, current registration, and a lien release if applicable.</p>
+          </article>
+          <article class="fact-card">
+            <div class="fact-icon">🔁</div>
+            <h3>Online title transfer option</h3>
+            <p>Utah DMV offers a Person to Person Online Title Transfer service for certain Utah-to-Utah transactions.</p>
+          </article>
+          <article class="fact-card">
+            <div class="fact-icon">🚗</div>
+            <h3>License plate reminder</h3>
+            <p>Utah DMV says sellers should remove the license plate unless the plates are being sold with the vehicle.</p>
+          </article>
+        </div>
+        <p class="source-note">Utah DMV references: <a href="https://dmv.utah.gov/other-services-overview/buying-selling/responsibilities/" target="_blank" rel="noopener">buyer/seller responsibilities</a>, <a href="https://dmv.utah.gov/titles-overview/upp/" target="_blank" rel="noopener">UPP online title transfers</a>. This website is informational only and is not legal or tax advice.</p>
+      </div>
+    </section>
+
+    <section class="section" id="offer">
+      <div class="container offer-wrap">
+        <div>
+          <p class="section-kicker">Register to sell</p>
+          <h2>Reserve your vehicle spot for the first Utah Auto Fair.</h2>
+          <p class="section-sub">Because this is the first Utah event, the page does not claim past results. Instead, it clearly sells the concept: a public, organized weekend marketplace for local car buyers and sellers.</p>
+        </div>
+
+        <article class="price-card">
+          <span class="price-label">Founding seller rate</span>
+          <div class="price"><span class="old">$125</span><span class="new">$99</span></div>
+          <p class="small">Flat registration fee for your reserved seller spot. Change this price if your final offer is different.</p>
+          <ul class="check-list">
+            <li>Reserved display space for your vehicle at the event</li>
+            <li>Standardized seller information sheet for your window</li>
+            <li>Vehicle preview listing before the event</li>
+            <li>Event marketing to Utah-area buyers</li>
+            <li>No commission from Utah Auto Fair when your car sells</li>
+            <li>Seller checklist reminders for title, payment, and DMV steps</li>
+          </ul>
+          <a class="btn btn-primary" href="#register" style="width:100%;">Start Registration</a>
+          <p class="form-note">Suggested launch limit: 75 seller spots. Update this after your venue capacity is confirmed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt" id="register">
+      <div class="container offer-wrap">
+        <div>
+          <p class="section-kicker">Seller pre-registration</p>
+          <h2>Tell us about your vehicle.</h2>
+          <p class="section-sub">This static form is ready for Netlify Forms. If you host somewhere else, connect it to Formspree, Basin, Google Forms, or your own backend.</p>
+          <p class="section-sub"><strong>Replace placeholder contact info before publishing:</strong><br>Phone: (801) 555-0123<br>Email: hello@utahautofair.com<br>Venue: To be announced</p>
+        </div>
+
+        <form class="registration" name="seller-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+          <input type="hidden" name="form-name" value="seller-registration">
+          <p style="display:none"><label>Do not fill this out: <input name="bot-field"></label></p>
+
+          <div class="form-row">
+            <div>
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+          </div>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+
+          <div class="form-row">
+            <div>
+              <label for="year">Vehicle year</label>
+              <input id="year" name="vehicle_year" type="text" placeholder="2018" required>
+            </div>
+            <div>
+              <label for="make-model">Make and model</label>
+              <input id="make-model" name="make_model" type="text" placeholder="Toyota Camry" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="mileage">Mileage</label>
+              <input id="mileage" name="mileage" type="text" placeholder="85,000">
+            </div>
+            <div>
+              <label for="asking">Asking price</label>
+              <input id="asking" name="asking_price" type="text" placeholder="$12,500">
+            </div>
+          </div>
+
+          <label for="title-status">Title status</label>
+          <select id="title-status" name="title_status" required>
+            <option value="">Select one</option>
+            <option>Clean title in my name</option>
+            <option>Lien / loan payoff needed</option>
+            <option>Rebuilt or branded title</option>
+            <option>Other / not sure</option>
+          </select>
+
+          <label for="notes">Anything buyers should know?</label>
+          <textarea id="notes" name="notes" placeholder="Trim, condition, recent maintenance, accident history, etc."></textarea>
+
+          <button class="btn btn-primary" type="submit" style="width:100%; margin-top: 18px;">Submit Pre-Registration</button>
+          <p class="form-note">Submitting this form does not guarantee acceptance or reserve a spot until payment and confirmation are complete.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <p class="section-kicker">Questions</p>
+        <h2>FAQ</h2>
+        <div class="faq" style="margin-top: 34px;">
+          <article class="faq-item">
+            <h3>Is Utah Auto Fair a dealership?</h3>
+            <p>No. This page is written as a private-party event concept. Sellers and buyers make their own deal directly.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Does Utah Auto Fair take a commission?</h3>
+            <p>The offer on this page says no commission. Sellers pay the registration fee and keep the sale proceeds.</p>
+          </article>
+          <article class="faq-item">
+            <h3>What if my car does not sell?</h3>
+            <p>You still get exposure to local buyers and can follow up with interested shoppers after the event. Add your own refund or credit policy here if you have one.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Do you handle payment or paperwork?</h3>
+            <p>Unless you add a managed transaction service, buyers and sellers should handle payment, title, registration, lien payoff, and DMV steps directly.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Where and when is the first event?</h3>
+            <p>Replace this answer after your Utah venue and date are finalized. For now, use “venue and date to be announced.”</p>
+          </article>
+          <article class="faq-item">
+            <h3>Can dealers participate?</h3>
+            <p>This draft is positioned for private sellers. Change this answer if you plan to allow dealer inventory.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <h2>Ready to sell your car the simpler way?</h2>
+      <p>Reserve a founding seller spot for Utah Auto Fair and put your vehicle in front of local buyers in one organized weekend setting.</p>
+      <a class="btn btn-primary" href="#register">Register to Sell</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> Utah Auto Fair. All rights reserved.</div>
+      <div><a href="#register">Seller Registration</a> · <a href="mailto:hello@utahautofair.com">hello@utahautofair.com</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
